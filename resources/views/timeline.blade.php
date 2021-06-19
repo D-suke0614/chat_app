@@ -9,7 +9,8 @@
 </head>
 <body>
   <div class="wrapper">
-    <form action="">
+    <form action="/timeline" action="post">
+      @csrf
       <div class="post_box">
         <input type="text" name="chat" placeholder="今何してる？">
         <button type="submit" class="submit_btn">投稿</button>
