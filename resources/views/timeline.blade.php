@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="wrapper">
-    <form action="/timeline" action="post">
+    <form action="/timeline" method="post">
       @csrf
       <div class="post_box">
         <input type="text" name="chat" placeholder="今何してる？">
@@ -18,9 +18,17 @@
     </form>
 
     <div class="chat_wrapper">
+      @foreach($chats as $chat)
       <div class="chat_box">
-
+        <div>{{ $chat->chat }}</div>
+        <div class="destroy_btn">
+          <form action="{{ route('destroy', [$chat->id]) }}" method="post">
+            @csrf
+            <input type="submit" value="削除">
+          </form>
+        </div>
       </div>
+      @endforeach
     </div>
   </div>
 </body>

@@ -10,7 +10,8 @@ class ChatController extends Controller
     //
     public function shoeTimelinePage()
     {
-        return view('timeline');
+        $chats = Chat::latest()->get();
+        return view('timeline', ['chats' => $chats]);
     }
 
     public function postChat(Request $request)
@@ -18,12 +19,20 @@ class ChatController extends Controller
         $validator = $request->validate([
             'chat' => ['required', 'string', 'max:280'],
         ]);
-        
+
         Chat::create([
             'user_id' => 1,
             'chat' => $request->chat,
         ]);
 
         return back();
+    }
+
+    public function destroy($id)
+    {
+        $chat = Chat::find($id);
+        $chat->delete();
+
+        return redirect()->route('timeline');
     }
 }

@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Chat extends Model
 {
     //
+    // protected $table = 'chats';
+
     protected $fillable = [
-        'user_id', 'chat',
+        'user_id', 'chat'
     ];
 
     public function user() {
