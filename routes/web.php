@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/timeline', 'ChatController@shoeTimelinePage')->name('timeline');
 Route::post('/timeline', 'ChatController@postChat');
+
+Route::post('/timeline/delete/{id}', 'ChatController@destroy')->name('destroy');

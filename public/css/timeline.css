@@ -31,3 +31,20 @@ body {
   padding: 0.5rem;
   border: none;
 }
+
+.chat_box{
+  padding: 2rem;
+  border-top: solid 1px #E6ECF0;
+  border-bottom: solid 1px #E6ECF0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chat_box > div{
+  width: 40%;
+}
+
+.destroy_btn{
+  text-align: right;
+}
